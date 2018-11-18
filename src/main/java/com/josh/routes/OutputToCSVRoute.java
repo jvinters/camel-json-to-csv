@@ -8,7 +8,7 @@ public class OutputToCSVRoute extends RouteBuilder{
 
 	@Override
 	public void configure() throws Exception {
-		from("direct:outputToCsv")
+		from("direct://outputToCsv")
 	 	.process(new FileWriterProcessor());
 	}
 }

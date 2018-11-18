@@ -3,6 +3,7 @@ package com.josh.main;
 import org.apache.camel.CamelContext;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.impl.DefaultCamelContext;
+import org.apache.camel.model.rest.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -25,24 +26,31 @@ public class Main {
 	public static void main(String[] args) throws Exception {
 
 		CamelContext context = new DefaultCamelContext();
+		context.start();
 		
-		context.addRoutes(new TransformPayloadToCSVRoute());
 		context.addRoutes(new OutputToCSVRoute());
+		context.addRoutes(new TransformPayloadToCSVRoute());
 		
 		context.addRoutes(new RouteBuilder() {
 			public void configure() throws Exception {
 				
 				restConfiguration()
 			        .component("restlet")
-			        .host("localhost").port("8080");
+			        .host("localhost")
+			        .port("8080");
+				
+				rest("/api/jsontocsv")
+					.post("/post")
+						.consumes("application/json")
+						.to("direct://transformPayloadToCsv");
 
-				from("file:F:/_dev/Randoli/camel-json-to-csv/src/test/resources?fileName=sample-payload.json&noop=true")
-				.to("direct:transformPayloadToCsv");
+//				from("file:F:/_dev/Randoli/camel-json-to-csv/src/test/resources?fileName=sample-payload.json&noop=true")
+//				.to("direct:transformPayloadToCsv");
             }
 		});
 		
-		context.start();
-		Thread.sleep(100000);
+		
+		Thread.sleep(19999);
 		context.stop();
 	}
 }
