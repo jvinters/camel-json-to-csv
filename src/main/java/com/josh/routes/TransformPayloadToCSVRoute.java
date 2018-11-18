@@ -2,6 +2,7 @@ package com.josh.routes;
 
 import org.apache.camel.builder.RouteBuilder;
 import com.josh.main.SimpleRecordService;
+import com.josh.main.ConcatenateAggregationStrategy;
 import com.josh.processors.ProcessJsonPayload;
 import com.josh.processors.LogRecordProcessor;
 
@@ -15,9 +16,10 @@ public class TransformPayloadToCSVRoute extends RouteBuilder {
 			.split()
 				.jsonpath("$.records")
 					.bean(SimpleRecordService.class, "FilterEventFromHashMap")
-					.bean(SimpleRecordService.class, "ConvertHashMapToStringAndRemoveSpecialChars")
 					.to("log:split")
-				
-			.to("direct:outputToCsv");
+			.aggregate(header("batchId"), new ConcatenateAggregationStrategy())
+				.completionSize(10)
+				.completionInterval(60000)
+				.to("direct:outputToCsv");
 	}
 }

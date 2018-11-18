@@ -3,7 +3,6 @@ package com.josh.main;
 import org.apache.camel.CamelContext;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.impl.DefaultCamelContext;
-import org.apache.camel.model.rest.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -43,14 +42,11 @@ public class Main {
 					.post("/post")
 						.consumes("application/json")
 						.to("direct://transformPayloadToCsv");
-
-//				from("file:F:/_dev/Randoli/camel-json-to-csv/src/test/resources?fileName=sample-payload.json&noop=true")
-//				.to("direct:transformPayloadToCsv");
             }
 		});
 		
 		
-		Thread.sleep(19999);
+		Thread.sleep(10000);
 		context.stop();
 	}
 }

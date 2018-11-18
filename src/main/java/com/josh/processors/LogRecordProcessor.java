@@ -28,7 +28,7 @@ public class LogRecordProcessor implements Processor{
 	@Override
 	public void process(Exchange exchange) throws Exception {
 		try {
-			String batchId = (String) exchange.getProperty("batchId");
+			String batchId = (String) exchange.getIn().getHeader("batchId");
 			String prefix = "Batch(" + batchId + "):\t";
 			
 			if(!LogMessage.isEmpty())

@@ -17,7 +17,7 @@ public class ProcessJsonPayload implements Processor{
 			DocumentContext jsonString = JsonPath.parse(bodyStr);
 			String batchId = jsonString.read("$.batchId");
 			
-			exchange.setProperty("batchId", batchId);
+			exchange.getOut().setHeader("batchId", batchId);
 			exchange.getOut().setBody(bodyStr);
 			
 		} catch (Exception e) {
