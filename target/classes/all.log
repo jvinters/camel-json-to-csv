@@ -1,27 +1,112 @@
-2018-11-17 21:31:34.357 [main] INFO  org.apache.camel.impl.DefaultCamelContext - Apache Camel 2.15.1 (CamelContext: camel-1) is starting
-2018-11-17 21:31:34.357 [main] INFO  org.apache.camel.management.ManagedManagementStrategy - JMX is enabled
-2018-11-17 21:31:34.437 [main] INFO  org.apache.camel.impl.converter.DefaultTypeConverter - Loaded 186 type converters
-2018-11-17 21:31:34.457 [main] INFO  org.apache.camel.impl.DefaultCamelContext - AllowUseOriginalMessage is enabled. If access to the original message is not needed, then its recommended to turn this option off as it may improve performance.
-2018-11-17 21:31:34.457 [main] INFO  org.apache.camel.impl.DefaultCamelContext - StreamCaching is not in use. If using streams then its recommended to enable stream caching. See more details at http://camel.apache.org/stream-caching.html
-2018-11-17 21:31:34.457 [main] INFO  org.apache.camel.impl.DefaultCamelContext - Total 0 routes, of which 0 is started.
-2018-11-17 21:31:34.457 [main] INFO  org.apache.camel.impl.DefaultCamelContext - Apache Camel 2.15.1 (CamelContext: camel-1) started in 0.100 seconds
-2018-11-17 21:31:34.556 [main] INFO  org.apache.camel.impl.DefaultCamelContext - Route: route1 started and consuming from: Endpoint[direct://outputToCsv]
-2018-11-17 21:31:34.620 [main] INFO  org.apache.camel.processor.aggregate.AggregateProcessor - Defaulting to MemoryAggregationRepository
-2018-11-17 21:31:34.621 [main] INFO  org.apache.camel.processor.aggregate.AggregateProcessor - Using CompletionInterval to run every 60000 millis.
-2018-11-17 21:31:34.639 [main] INFO  org.apache.camel.impl.DefaultCamelContext - Route: route2 started and consuming from: Endpoint[direct://transformPayloadToCsv]
-2018-11-17 21:31:34.791 [main] INFO  org.apache.camel.impl.DefaultCamelContext - Route: route3 started and consuming from: Endpoint[http://localhost:8080/api/jsontocsv/post?restletMethods=POST]
-2018-11-17 21:31:36.288 [Restlet-858204589] INFO  com.josh.main.Main - Batch(0310abf6-d1f5-a1b3-8fb0-36fe934b1f28):	{"batchId":"0310abf6-d1f5-a1b3-8fb0-36fe934b1f28","records":[{"transId":"0000abf8-d1f5-4536-8fb0-36fe934b1f28","transTms":"20151022102011927EDT","rcNum":"10002","clientId":"RPS-00001","event":[{"eventCnt":1,"locationCd":"DESTINATION","locationId1":"T8C","locationId2":"1J7","addrNbr":"0000000001"},{"eventCnt":1,"locationCd":"CUSTOMER NUMBER","locationId1":"0007316971"},{"eventCnt":1,"locationCd":"OUTLET ID","locationId1":"I029"}]},{"transId":"0000abf8-d1f5-4536-8fb0-36fe934b1f28","transTms":"20151022102011927EDT","rcNum":"10002","clientId":"RPS-00001","event":[{"eventCnt":1,"locationCd":"DESTINATION","locationId1":"T8C","locationId2":"1J7","addrNbr":"0000000001"},{"eventCnt":1,"locationCd":"CUSTOMER NUMBER","locationId1":"0007316971"},{"eventCnt":1,"locationCd":"OUTLET ID","locationId1":"I029"}]},{"transId":"0000abf8-d1f5-4536-8fb0-36fe934b1f28","transTms":"20151022102011927EDT","rcNum":"10002","clientId":"RPS-00001","event":[{"eventCnt":1,"locationCd":"DESTINATION","locationId1":"T8C","locationId2":"1J7","addrNbr":"0000000001"},{"eventCnt":1,"locationCd":"CUSTOMER NUMBER","locationId1":"0007316971"},{"eventCnt":1,"locationCd":"OUTLET ID","locationId1":"I029"}]}]}
-2018-11-17 21:31:36.302 [Restlet-858204589] INFO  split - Exchange[ExchangePattern: InOut, BodyType: java.util.LinkedHashMap, Body: {transId=0000abf8-d1f5-4536-8fb0-36fe934b1f28, transTms=20151022102011927EDT, rcNum=10002, clientId=RPS-00001}]
-2018-11-17 21:31:36.303 [Restlet-858204589] INFO  split - Exchange[ExchangePattern: InOut, BodyType: java.util.LinkedHashMap, Body: {transId=0000abf8-d1f5-4536-8fb0-36fe934b1f28, transTms=20151022102011927EDT, rcNum=10002, clientId=RPS-00001}]
-2018-11-17 21:31:36.305 [Restlet-858204589] INFO  split - Exchange[ExchangePattern: InOut, BodyType: java.util.LinkedHashMap, Body: {transId=0000abf8-d1f5-4536-8fb0-36fe934b1f28, transTms=20151022102011927EDT, rcNum=10002, clientId=RPS-00001}]
-2018-11-17 21:31:36.306 [Restlet-858204589] INFO  com.josh.main.Main - Batch(0310abf6-d1f5-a1b3-8fb0-36fe934b1f28):	{transId=0000abf8-d1f5-4536-8fb0-36fe934b1f28, transTms=20151022102011927EDT, rcNum=10002, clientId=RPS-00001}
-{transId=0000abf8-d1f5-4536-8fb0-36fe934b1f28, transTms=20151022102011927EDT, rcNum=10002, clientId=RPS-00001}
-{transId=0000abf8-d1f5-4536-8fb0-36fe934b1f28, transTms=20151022102011927EDT, rcNum=10002, clientId=RPS-00001}
-2018-11-17 21:31:44.793 [main] INFO  org.apache.camel.impl.DefaultCamelContext - Apache Camel 2.15.1 (CamelContext: camel-1) is shutting down
-2018-11-17 21:31:44.793 [main] INFO  org.apache.camel.impl.DefaultShutdownStrategy - Starting to graceful shutdown 3 routes (timeout 300 seconds)
-2018-11-17 21:31:44.795 [Camel (camel-1) thread #1 - ShutdownTask] INFO  org.apache.camel.impl.DefaultShutdownStrategy - Route: route3 shutdown complete, was consuming from: Endpoint[http://localhost:8080/api/jsontocsv/post?restletMethods=POST]
-2018-11-17 21:31:44.796 [Camel (camel-1) thread #1 - ShutdownTask] INFO  org.apache.camel.impl.DefaultShutdownStrategy - Route: route2 shutdown complete, was consuming from: Endpoint[direct://transformPayloadToCsv]
-2018-11-17 21:31:44.796 [Camel (camel-1) thread #1 - ShutdownTask] INFO  org.apache.camel.impl.DefaultShutdownStrategy - Route: route1 shutdown complete, was consuming from: Endpoint[direct://outputToCsv]
-2018-11-17 21:31:44.796 [main] INFO  org.apache.camel.impl.DefaultShutdownStrategy - Graceful shutdown of 3 routes completed in 0 seconds
-2018-11-17 21:31:44.800 [main] INFO  org.apache.camel.impl.DefaultCamelContext - Apache Camel 2.15.1 (CamelContext: camel-1) uptime 10.443 seconds
-2018-11-17 21:31:44.800 [main] INFO  org.apache.camel.impl.DefaultCamelContext - Apache Camel 2.15.1 (CamelContext: camel-1) is shutdown in 0.007 seconds
+2018-11-17 23:17:20.841 [main] INFO  com.testing.Routes.TransformPayloadToCSVTest - ********************************************************************************
+2018-11-17 23:17:20.842 [main] INFO  com.testing.Routes.TransformPayloadToCSVTest - Testing: TestRoute(com.testing.Routes.TransformPayloadToCSVTest)
+2018-11-17 23:17:20.842 [main] INFO  com.testing.Routes.TransformPayloadToCSVTest - ********************************************************************************
+2018-11-17 23:17:21.084 [main] INFO  org.apache.camel.impl.DefaultCamelContext - Apache Camel 2.15.1 (CamelContext: camel-1) is starting
+2018-11-17 23:17:21.085 [main] INFO  org.apache.camel.management.DefaultManagementStrategy - JMX is disabled
+2018-11-17 23:17:21.110 [main] INFO  org.apache.camel.impl.converter.DefaultTypeConverter - Loaded 186 type converters
+2018-11-17 23:17:21.201 [main] INFO  org.apache.camel.impl.DefaultCamelContext - AllowUseOriginalMessage is enabled. If access to the original message is not needed, then its recommended to turn this option off as it may improve performance.
+2018-11-17 23:17:21.201 [main] INFO  org.apache.camel.impl.DefaultCamelContext - StreamCaching is not in use. If using streams then its recommended to enable stream caching. See more details at http://camel.apache.org/stream-caching.html
+2018-11-17 23:17:21.203 [main] INFO  org.apache.camel.processor.aggregate.AggregateProcessor - Defaulting to MemoryAggregationRepository
+2018-11-17 23:17:21.204 [main] INFO  org.apache.camel.processor.aggregate.AggregateProcessor - Using CompletionTimeout to trigger after 60000 millis of inactivity.
+2018-11-17 23:17:21.209 [main] INFO  org.apache.camel.impl.DefaultCamelContext - Route: route1 started and consuming from: Endpoint[direct://transformPayloadToCsv]
+2018-11-17 23:17:21.209 [main] INFO  org.apache.camel.impl.DefaultCamelContext - Total 1 routes, of which 1 is started.
+2018-11-17 23:17:21.209 [main] INFO  org.apache.camel.impl.DefaultCamelContext - Apache Camel 2.15.1 (CamelContext: camel-1) started in 0.125 seconds
+2018-11-17 23:17:21.306 [main] INFO  com.josh.main.Main - Batch(null):	Processed the json payload, added batchId as a header.
+2018-11-17 23:17:21.307 [main] INFO  com.josh.main.Main - Batch(null):	{"A":"a","B":"b","C":"c"}
+2018-11-17 23:17:21.309 [main] ERROR org.apache.camel.processor.DefaultErrorHandler - Failed delivery for (MessageId: ID-DESKTOP-T2SR8M2-57929-1542514640866-0-1 on ExchangeId: ID-DESKTOP-T2SR8M2-57929-1542514640866-0-2). Exhausted after delivery attempt: 1 caught: org.apache.camel.ExpressionEvaluationException: com.jayway.jsonpath.PathNotFoundException: No results for path: $['records']
+
+Message History
+---------------------------------------------------------------------------------------------------------------------------------------
+RouteId              ProcessorId          Processor                                                                        Elapsed (ms)
+[route1            ] [route1            ] [direct://transformPayloadToCsv                                                ] [        12]
+[route1            ] [process1          ] [Processor@0x548d708a                                                          ] [         6]
+[route1            ] [process2          ] [Processor@0x4b013c76                                                          ] [         1]
+[route1            ] [split1            ] [split[jsonpath{jsonpath[$.records]}]                                          ] [         1]
+
+Exchange
+---------------------------------------------------------------------------------------------------------------------------------------
+Exchange[
+	Id                  ID-DESKTOP-T2SR8M2-57929-1542514640866-0-2
+	ExchangePattern     InOnly
+	Headers             {breadcrumbId=ID-DESKTOP-T2SR8M2-57929-1542514640866-0-1, CamelRedelivered=false, CamelRedeliveryCounter=0}
+	BodyType            String
+	Body                {"A":"a","B":"b","C":"c"}
+]
+
+Stacktrace
+---------------------------------------------------------------------------------------------------------------------------------------
+org.apache.camel.ExpressionEvaluationException: com.jayway.jsonpath.PathNotFoundException: No results for path: $['records']
+	at org.apache.camel.jsonpath.JsonPathExpression.evaluate(JsonPathExpression.java:57) ~[camel-jsonpath-2.15.1.jar:2.15.1]
+	at org.apache.camel.support.ExpressionAdapter.evaluate(ExpressionAdapter.java:36) ~[camel-core-2.15.1.jar:2.15.1]
+	at org.apache.camel.processor.Splitter.createProcessorExchangePairs(Splitter.java:109) ~[camel-core-2.15.1.jar:2.15.1]
+	at org.apache.camel.processor.MulticastProcessor.process(MulticastProcessor.java:220) ~[camel-core-2.15.1.jar:2.15.1]
+	at org.apache.camel.processor.Splitter.process(Splitter.java:104) ~[camel-core-2.15.1.jar:2.15.1]
+	at org.apache.camel.processor.RedeliveryErrorHandler.process(RedeliveryErrorHandler.java:448) [camel-core-2.15.1.jar:2.15.1]
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:191) [camel-core-2.15.1.jar:2.15.1]
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:118) [camel-core-2.15.1.jar:2.15.1]
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:80) [camel-core-2.15.1.jar:2.15.1]
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:191) [camel-core-2.15.1.jar:2.15.1]
+	at org.apache.camel.component.direct.DirectProducer.process(DirectProducer.java:51) [camel-core-2.15.1.jar:2.15.1]
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:191) [camel-core-2.15.1.jar:2.15.1]
+	at org.apache.camel.util.AsyncProcessorHelper.process(AsyncProcessorHelper.java:109) [camel-core-2.15.1.jar:2.15.1]
+	at org.apache.camel.processor.UnitOfWorkProducer.process(UnitOfWorkProducer.java:68) [camel-core-2.15.1.jar:2.15.1]
+	at org.apache.camel.impl.ProducerCache$2.doInProducer(ProducerCache.java:375) [camel-core-2.15.1.jar:2.15.1]
+	at org.apache.camel.impl.ProducerCache$2.doInProducer(ProducerCache.java:343) [camel-core-2.15.1.jar:2.15.1]
+	at org.apache.camel.impl.ProducerCache.doInProducer(ProducerCache.java:233) [camel-core-2.15.1.jar:2.15.1]
+	at org.apache.camel.impl.ProducerCache.sendExchange(ProducerCache.java:343) [camel-core-2.15.1.jar:2.15.1]
+	at org.apache.camel.impl.ProducerCache.send(ProducerCache.java:184) [camel-core-2.15.1.jar:2.15.1]
+	at org.apache.camel.impl.DefaultProducerTemplate.send(DefaultProducerTemplate.java:124) [camel-core-2.15.1.jar:2.15.1]
+	at org.apache.camel.impl.DefaultProducerTemplate.sendBody(DefaultProducerTemplate.java:137) [camel-core-2.15.1.jar:2.15.1]
+	at org.apache.camel.impl.DefaultProducerTemplate.sendBody(DefaultProducerTemplate.java:144) [camel-core-2.15.1.jar:2.15.1]
+	at com.testing.Routes.TransformPayloadToCSVTest.TestRoute(TransformPayloadToCSVTest.java:31) [test-classes/:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_191]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_191]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_191]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_191]
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50) [junit.jar:4.12]
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12) [junit.jar:4.12]
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47) [junit.jar:4.12]
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17) [junit.jar:4.12]
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26) [junit.jar:4.12]
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27) [junit.jar:4.12]
+	at org.junit.rules.TestWatcher$1.evaluate(TestWatcher.java:55) [junit.jar:4.12]
+	at org.junit.rules.RunRules.evaluate(RunRules.java:20) [junit.jar:4.12]
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325) [junit.jar:4.12]
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78) [junit.jar:4.12]
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57) [junit.jar:4.12]
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290) [junit.jar:4.12]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71) [junit.jar:4.12]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288) [junit.jar:4.12]
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58) [junit.jar:4.12]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268) [junit.jar:4.12]
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27) [junit.jar:4.12]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363) [junit.jar:4.12]
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:89) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:541) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:763) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:463) [.cp/:?]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:209) [.cp/:?]
+Caused by: com.jayway.jsonpath.PathNotFoundException: No results for path: $['records']
+	at com.jayway.jsonpath.internal.token.PathToken.handleObjectProperty(PathToken.java:53) ~[json-path-1.2.0.jar:1.2.0]
+	at com.jayway.jsonpath.internal.token.PropertyPathToken.evaluate(PropertyPathToken.java:44) ~[json-path-1.2.0.jar:1.2.0]
+	at com.jayway.jsonpath.internal.token.RootPathToken.evaluate(RootPathToken.java:53) ~[json-path-1.2.0.jar:1.2.0]
+	at com.jayway.jsonpath.internal.CompiledPath.evaluate(CompiledPath.java:53) ~[json-path-1.2.0.jar:1.2.0]
+	at com.jayway.jsonpath.internal.CompiledPath.evaluate(CompiledPath.java:61) ~[json-path-1.2.0.jar:1.2.0]
+	at com.jayway.jsonpath.JsonPath.read(JsonPath.java:179) ~[json-path-1.2.0.jar:1.2.0]
+	at com.jayway.jsonpath.JsonPath.read(JsonPath.java:305) ~[json-path-1.2.0.jar:1.2.0]
+	at com.jayway.jsonpath.JsonPath.read(JsonPath.java:289) ~[json-path-1.2.0.jar:1.2.0]
+	at org.apache.camel.jsonpath.JsonPathEngine.read(JsonPathEngine.java:61) ~[camel-jsonpath-2.15.1.jar:2.15.1]
+	at org.apache.camel.jsonpath.JsonPathExpression.evaluateJsonPath(JsonPathExpression.java:67) ~[camel-jsonpath-2.15.1.jar:2.15.1]
+	at org.apache.camel.jsonpath.JsonPathExpression.evaluate(JsonPathExpression.java:50) ~[camel-jsonpath-2.15.1.jar:2.15.1]
+	... 50 more
+2018-11-17 23:17:21.313 [main] INFO  com.testing.Routes.TransformPayloadToCSVTest - ********************************************************************************
+2018-11-17 23:17:21.313 [main] INFO  com.testing.Routes.TransformPayloadToCSVTest - Testing done: TestRoute(com.testing.Routes.TransformPayloadToCSVTest)
+2018-11-17 23:17:21.313 [main] INFO  com.testing.Routes.TransformPayloadToCSVTest - Took: 0.103 seconds (103 millis)
+2018-11-17 23:17:21.313 [main] INFO  com.testing.Routes.TransformPayloadToCSVTest - ********************************************************************************
+2018-11-17 23:17:21.314 [main] INFO  org.apache.camel.impl.DefaultCamelContext - Apache Camel 2.15.1 (CamelContext: camel-1) is shutting down
+2018-11-17 23:17:21.314 [main] INFO  org.apache.camel.impl.DefaultShutdownStrategy - Starting to graceful shutdown 1 routes (timeout 10 seconds)
+2018-11-17 23:17:21.316 [Camel (camel-1) thread #1 - ShutdownTask] INFO  org.apache.camel.impl.DefaultShutdownStrategy - Route: route1 shutdown complete, was consuming from: Endpoint[direct://transformPayloadToCsv]
+2018-11-17 23:17:21.316 [main] INFO  org.apache.camel.impl.DefaultShutdownStrategy - Graceful shutdown of 1 routes completed in 0 seconds
+2018-11-17 23:17:21.318 [main] INFO  org.apache.camel.impl.DefaultCamelContext - Apache Camel 2.15.1 (CamelContext: camel-1) uptime 0.234 seconds
+2018-11-17 23:17:21.318 [main] INFO  org.apache.camel.impl.DefaultCamelContext - Apache Camel 2.15.1 (CamelContext: camel-1) is shutdown in 0.004 seconds

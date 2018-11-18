@@ -2,8 +2,9 @@ package com.josh.routes;
 
 import org.apache.camel.builder.RouteBuilder;
 
+import com.josh.main.Main;
 import com.josh.main.SimpleRecordService;
-import com.josh.processors.FileWriterProcessor;
+import com.josh.processors.FileWriterWithExchangeHeaderProcessor;
 import com.josh.processors.LogRecordProcessor;
 
 public class OutputToCSVRoute extends RouteBuilder{
@@ -11,8 +12,9 @@ public class OutputToCSVRoute extends RouteBuilder{
 	@Override
 	public void configure() throws Exception {
 		from("direct://outputToCsv")
-		.process(new LogRecordProcessor(true) )
 		.bean(SimpleRecordService.class, "ConvertStringRemoveSpecialChars")
-	 	.process(new FileWriterProcessor());
+		.process(new LogRecordProcessor("Converted exchange body to CSV format.", true))
+	 	.process(new FileWriterWithExchangeHeaderProcessor(Main.OutputFilePath, "batchId", ".csv", true))
+		.process(new LogRecordProcessor("Wrote file to filepath: ", true));
 	}
 }

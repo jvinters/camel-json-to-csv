@@ -10,16 +10,20 @@ public class TransformPayloadToCSVRoute extends RouteBuilder {
 
 	@Override
 	public void configure() throws Exception {
-		from("direct://transformPayloadToCsv")
+		try {
+			
+			from("direct://transformPayloadToCsv")
 			.process(new ProcessJsonPayload())
-			.process(new LogRecordProcessor(true) )
+				.process(new LogRecordProcessor("Processed the json payload, added batchId as a header.", true))
 			.split()
 				.jsonpath("$.records")
 					.bean(SimpleRecordService.class, "FilterEventFromHashMap")
-					.to("log:split")
+					.process(new LogRecordProcessor("Filtered event from json payload.", true))
 			.aggregate(header("batchId"), new ConcatenateAggregationStrategy())
-				.completionSize(10)
-				.completionInterval(60000)
+				.completionSize(3).completionTimeout(60000)
+				.process(new LogRecordProcessor("Aggregating payload batch.", true))
 				.to("direct:outputToCsv");
+			
+		} catch (Exception e) {}
 	}
 }

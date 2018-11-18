@@ -15,12 +15,14 @@ import com.josh.routes.TransformPayloadToCSVRoute;
 	//Remove events section
 	//Transform to CSV
 //Aggregate transformed messages every 1min or when 10 messages are in the batch
-//Write each aggregation into a separate file (use consistent file naming convention)
+//Write each aggregation into a separate file (use consistent file naming convention?)
 //Configure file end point
 	//Output file to the files system
 
 public class Main {
 	public static Logger logger = LoggerFactory.getLogger(Main.class);
+	//Hard coded file path, should be in a configuration file.
+	public static String OutputFilePath = "F:\\_dev\\Randoli\\test\\";
 	
 	public static void main(String[] args) throws Exception {
 
@@ -46,7 +48,7 @@ public class Main {
 		});
 		
 		
-		Thread.sleep(10000);
+		Thread.sleep(65000);
 		context.stop();
 	}
 }

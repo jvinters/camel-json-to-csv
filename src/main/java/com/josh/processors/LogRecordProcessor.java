@@ -1,5 +1,7 @@
 package com.josh.processors;
 
+import java.io.File;
+
 import org.apache.camel.Exchange;
 import org.apache.camel.Processor;
 
@@ -40,4 +42,6 @@ public class LogRecordProcessor implements Processor{
 			//TODO
 		}
 	}
+	
+	
 }

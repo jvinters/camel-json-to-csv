@@ -41,7 +41,8 @@ public class SimpleRecordService {
 	}
 
 	public LinkedHashMap FilterEventFromHashMap(LinkedHashMap hashMap) throws Exception{
-		hashMap.remove("event");
+		if(hashMap.containsKey("event"))
+			hashMap.remove("event");
 		return hashMap;
 	}
 }
