@@ -1,12 +1,12 @@
 package com.josh.routes;
 
+import org.apache.camel.LoggingLevel;
 import org.apache.camel.builder.RouteBuilder;
+import org.apache.camel.processor.aggregate.GroupedMessageAggregationStrategy;
 import org.springframework.stereotype.Component;
 
 import com.josh.main.SimpleRecordService;
-import com.josh.main.ConcatenateAggregationStrategy;
 import com.josh.processors.ProcessJsonPayload;
-import com.josh.processors.LogRecordProcessor;
 
 @Component
 public class TransformPayloadToCSVRoute extends RouteBuilder {
@@ -17,14 +17,13 @@ public class TransformPayloadToCSVRoute extends RouteBuilder {
 			
 			from("direct://transformPayloadToCsv")
 				.process(new ProcessJsonPayload())
-					.process(new LogRecordProcessor("Processed the json payload, added batchId as a header.", true))
+					.log(LoggingLevel.INFO, "$simple{in.header.batchId} - Processed the json payload, added batchId as a header.")
 				.split()
 					.jsonpath("$.records")
 						.bean(SimpleRecordService.class, "FilterEventFromHashMap")
-						.process(new LogRecordProcessor("Filtered event from json payload.", true))
-				.aggregate(header("batchId"), new ConcatenateAggregationStrategy())
+				.aggregate(header("batchId"), new GroupedMessageAggregationStrategy())
 					.completionSize(3).completionTimeout(60000)
-					.process(new LogRecordProcessor("Aggregating payload batch.", true))
+						.log(LoggingLevel.INFO, "$simple{in.header.batchId} - Aggregating payload batch.")
 					.to("direct:outputToCsv");
 			
 		} catch (Exception e) {}

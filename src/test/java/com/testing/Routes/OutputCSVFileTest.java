@@ -9,7 +9,6 @@ import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.test.junit4.CamelTestSupport;
 import org.junit.Test;
 
-import com.josh.helpers.FileHelper;
 import com.josh.main.Application;
 import com.josh.routes.OutputToCSVRoute;
 
