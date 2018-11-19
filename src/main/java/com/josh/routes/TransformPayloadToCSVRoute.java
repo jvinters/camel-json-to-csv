@@ -5,6 +5,7 @@ import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.processor.aggregate.GroupedMessageAggregationStrategy;
 import org.springframework.stereotype.Component;
 
+import com.josh.main.Application;
 import com.josh.main.SimpleRecordService;
 import com.josh.processors.ProcessJsonPayload;
 
@@ -24,7 +25,9 @@ public class TransformPayloadToCSVRoute extends RouteBuilder {
 				.aggregate(header("batchId"), new GroupedMessageAggregationStrategy())
 					.completionSize(3).completionTimeout(60000)
 						.log(LoggingLevel.INFO, "$simple{in.header.batchId} - Aggregating payload batch.")
-					.to("direct:outputToCsv");
+						.bean(SimpleRecordService.class, "ConvertStringRemoveSpecialChars")
+						.log(LoggingLevel.INFO, "$simple{in.header.batchId} - Converted exchange body to CSV format.")
+						.to("file://" + Application.OutputFilePath + "?fileName=output.csv");
 			
 		} catch (Exception e) {}
 	}

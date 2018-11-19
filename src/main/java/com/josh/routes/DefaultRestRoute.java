@@ -1,6 +1,5 @@
 package com.josh.routes;
 
-import org.apache.camel.LoggingLevel;
 import org.apache.camel.builder.RouteBuilder;
 import org.springframework.stereotype.Component;
 
@@ -14,15 +13,7 @@ public class DefaultRestRoute extends RouteBuilder {
 			.component("servlet");
 
 		rest()
-			.get("/hello")
-			.to("direct:hello");
-		
-		from("direct:hello")
-			.log(LoggingLevel.INFO, "Hello World")
-			.transform().simple("Hello World");
-
-		rest()
-			.post("/api/jsontocsv").consumes("application/json")
+			.post("/jsontocsv").consumes("application/json")
 			.to("direct://transformPayloadToCsv");
 	}
 
