@@ -2,7 +2,9 @@ package com.josh.main;
 
 import org.apache.camel.Exchange;
 import org.apache.camel.processor.aggregate.AggregationStrategy;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ConcatenateAggregationStrategy implements AggregationStrategy {
 
 	@Override

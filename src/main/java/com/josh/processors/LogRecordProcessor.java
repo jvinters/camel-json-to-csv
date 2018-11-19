@@ -4,8 +4,11 @@ import java.io.File;
 
 import org.apache.camel.Exchange;
 import org.apache.camel.Processor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-import com.josh.main.Main;
+import com.josh.main.Application;
+
 
 public class LogRecordProcessor implements Processor{
 	
@@ -34,14 +37,32 @@ public class LogRecordProcessor implements Processor{
 			String prefix = "Batch(" + batchId + "):\t";
 			
 			if(!LogMessage.isEmpty())
-				Main.logger.info(prefix + LogMessage);
+				Application.logger.info(prefix + LogMessage);
 			if(logBody)
-				Main.logger.info(prefix + exchange.getIn().getBody());
+				Application.logger.info(prefix + exchange.getIn().getBody());
 			
 		} catch (Exception e) {
 			//TODO
 		}
 	}
-	
-	
+
+	@Autowired
+	public String getLogMessage() {
+		return LogMessage;
+	}
+
+	@Autowired
+	public void setLogMessage(String logMessage) {
+		LogMessage = logMessage;
+	}
+
+	@Autowired
+	public Boolean getLogBody() {
+		return logBody;
+	}
+
+	@Autowired
+	public void setLogBody(Boolean logBody) {
+		this.logBody = logBody;
+	}
 }

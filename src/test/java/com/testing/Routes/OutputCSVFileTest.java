@@ -10,7 +10,7 @@ import org.apache.camel.test.junit4.CamelTestSupport;
 import org.junit.Test;
 
 import com.josh.helpers.FileHelper;
-import com.josh.main.Main;
+import com.josh.main.Application;
 import com.josh.routes.OutputToCSVRoute;
 
 public class OutputCSVFileTest extends CamelTestSupport{
@@ -31,10 +31,10 @@ public class OutputCSVFileTest extends CamelTestSupport{
 		template.sendBody("direct://outputToCsv", map);
 		Thread.sleep(3000);
 		
-		File directory = new File(Main.OutputFilePath);
+		File directory = new File(Application.OutputFilePath);
 		assertTrue(directory.isDirectory());
 		
-		File csvFile = new File(Main.OutputFilePath + "batchId.csv");
+		File csvFile = new File(Application.OutputFilePath + "batchId.csv");
 		assertTrue(csvFile.exists());
 	}
 	
